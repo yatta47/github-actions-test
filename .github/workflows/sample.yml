@@ -18,8 +18,9 @@ jobs:
       - name: get value
         run: |
           COMMIT_HASH=$(cat environment01/environment | jq -r .commit_hash)
+          echo "::set-output name=COMMIT_HASH::${COMMIT_HASH}"
+        id: get-value
 
       - name: echo
         run |
-          echo '${{ COMMIT_HASH }}'
-          echo '${{ toJSON(github) }}'
+          echo "${{ steps.get-value.outputs.COMMIT_HASH }}"
