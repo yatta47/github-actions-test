@@ -21,4 +21,5 @@ jobs:
 
       - name: echo
         run |
-          echo ${{ COMMIT_HASH }}
+          echo '${{ COMMIT_HASH }}'
+          echo '${{ toJSON(github) }}'
