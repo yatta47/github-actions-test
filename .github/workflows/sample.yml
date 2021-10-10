@@ -17,9 +17,15 @@ jobs:
       - name: get value
         run: |
           COMMIT_HASH=$(cat environment01/environment | jq -r .commit_hash)
+          ACCOUNT_ID=$(cat environment01/environment | jq -r .account_id)
+          TARGET=$(cat environment01/environment | jq -r .target)
           echo "::set-output name=COMMIT_HASH::${COMMIT_HASH}"
+          echo "::set-output name=ACCOUNT_ID::${ACCOUNT_ID}"
+          echo "::set-output name=TARGET::${TARGET}"
         id: get-value
 
       - name: echo
         run: |
           echo "${{ steps.get-value.outputs.COMMIT_HASH }}"
+          echo "${{ steps.get-value.outputs.ACCOUNT_ID }}"
+          echo "${{ steps.get-value.outputs.TARGET }}"

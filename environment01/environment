@@ -1,3 +1,5 @@
 {
-    "commit_hash": "bbbbbbbbbbbb"
+    "commit_hash": "bbbbbbbbbbbb",
+    "target": "app1,app2,app3",
+    "account_id": "aaar11234567"
 }
