@@ -29,8 +29,9 @@ jobs:
           echo "${{ steps.get-value.outputs.COMMIT_HASH }}"
           echo "${{ steps.get-value.outputs.ACCOUNT_ID }}"
           echo "${{ steps.get-value.outputs.TARGET }}"
+          TARGETS=( $(echo ${{ steps.get-value.outputs.TARGET }} | sed -e "s|,| |g"))
 
-          for A in ${{ steps.get-value.outputs.TARGET }};
+          for A in "${TARGET[@]}";
           do
             echo "Value is ${A}"
           done
