@@ -1,0 +1,24 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Init
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: get value
+        run: |
+          COMMIT_HASH=$(cat environment01/environment | jq -r .commit_hash)
+
+      - name: echo
+        run |
+          echo ${{ COMMIT_HASH }}
